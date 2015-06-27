@@ -1,0 +1,16 @@
+Return-Path: <bounces@example.com>
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on example.tld
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_40,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HTML_MESSAGE,MIME_BASE64_TEXT,RCVD_IN_DNSWL_HI,
+	RCVD_IN_MSPIKE_H3,RCVD_IN_MSPIKE_WL,SPF_PASS,T_REMOTE_IMAGE,URIBL_BLOCKED
+	autolearn=no autolearn_force=no version=3.4.0
+X-Original-To: alias@example.com
+Delivered-To: real@example.com
+From: Fictious sender <sender@example.com>
+To: "Fictious recipient" <recipient@example.com>
+Date: Sat, 23 Jun 2015 10:38:48 +0100
+Subject: =?utf-8?B?RXhhbXBsZSBzdWJqZWN0Cg=?=
+Message-ID: <f45e8ef2-0967-490a-9fdd-4e3899a8246f@example.com>
+
+Example body content
