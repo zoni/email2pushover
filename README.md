@@ -45,16 +45,20 @@ This is one of the main use-cases for this utility. For example, to recieve a pu
 :0 c
 * ^Subject:.*urgent.*
 | /path/to/email2pushover --token YOUR_APP_TOKEN --recipient YOUR_USER_KEY
-
 ```
 
 
 Changes
 -------
 
+* __1.0.1__ (2015-06-28)
+
+    * Ensure headers are always displayed in the specified order
+
 * __1.0.0__ (2015-06-28)
 
     * Public release
+
 
 License
 -------

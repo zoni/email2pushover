@@ -15,7 +15,7 @@ import (
 	"unicode/utf8"
 )
 
-const VERSION = "1.0.0"
+const VERSION = "1.0.1"
 
 var (
 	app       = kingpin.New("email2pushover", "email2pushover sends pushover notifications from mail read on stdin.")
@@ -62,10 +62,15 @@ func extractHeadersFromMail(r io.Reader, headers []string) (extracted map[string
 	return
 }
 
-// constructMessageBody creates a formatted message body from the supplied headers.
-func constructMessageBody(headers map[string]string) string {
+// constructMessageBody creates a formatted message body from the supplied headers
+// in the given order.
+func constructMessageBody(headers map[string]string, order []string) string {
 	var buffer bytes.Buffer
-	for header, value := range headers {
+	for _, header := range order {
+		value, present := headers[header]
+		if !present {
+			panic(fmt.Sprintf("Header '%s' missing from headers", header))
+		}
 		buffer.WriteString(fmt.Sprintf("%s: %s\n", header, value))
 	}
 	return strings.TrimSpace(buffer.String())
@@ -84,7 +89,7 @@ func main() {
 	pushover_app := pushover.New(*token)
 	pushover_recipient := pushover.NewRecipient(*recipient)
 	pushover_message := &pushover.Message{
-		Message: constructMessageBody(headers),
+		Message: constructMessageBody(headers, headerlist),
 		Title:   *title,
 	}
 

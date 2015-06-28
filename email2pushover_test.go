@@ -46,6 +46,8 @@ func TestExtractHeadersFromMail(t *testing.T) {
 func TestConstructMessageBody(t *testing.T) {
 	assert := assert.New(t)
 
+	headerlist := []string{"From", "To", "Subject"}
+
 	headers := make(map[string]string)
 	headers["From"] = "Fictious sender <sender@example.com>"
 	headers["To"] = "\"Fictious recipient\" <recipient@example.com>"
@@ -55,5 +57,9 @@ func TestConstructMessageBody(t *testing.T) {
 		"To: \"Fictious recipient\" <recipient@example.com>\n" +
 		"Subject: Example subject"
 
-	assert.Equal(expected_body, constructMessageBody(headers))
+	assert.Equal(expected_body, constructMessageBody(headers, headerlist))
+
+	assert.Panics(func() {
+		constructMessageBody(headers, []string{"Missing key"})
+	})
 }
