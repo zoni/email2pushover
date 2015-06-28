@@ -1,4 +1,4 @@
-email2pushover
+email2pushover  &nbsp; <sup>[![Build Status](https://travis-ci.org/zoni/email2pushover.svg?branch=master)](https://travis-ci.org/zoni/email2pushover)</sup>
 ==============
 
 *email2pushover sends [pushover](http://pushover.net/) notifications from mail read on stdin.*
